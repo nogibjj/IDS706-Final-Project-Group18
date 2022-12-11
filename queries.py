@@ -3,7 +3,7 @@ import pandas as pd
 import sqlite3
 
 # Connecting to the database
-connection = sqlite3.connect("fortune.db")
+connection = sqlite3.connect("layoffs.db")
 
 # Creating a cursor object to execute
 # SQL queries on a database table
@@ -16,10 +16,10 @@ def parse_to_json(df):
     return json.dumps(parsed, indent=4)
 
 
-def searchAll():
+def query_search_all():
     # get all the data from database
     sql = """
-    SELECT * FROM fortune;
+    SELECT * FROM layoffs;
     """
 
     # executing the SQL query
@@ -32,12 +32,14 @@ def searchAll():
     return result
 
 
-def searchTop100ChineseCompanies():
+def query_search_industry():
     # get all the data from database
     sql = """
-    SELECT Rank, Name, Country, Sales, Profit, Assets, MarketValue 
-    FROM fortune
-    WHERE Rank <= 100 AND Country = 'China' AND Name NOT LIKE "%China%"
+    SELECT Industry, sum(Laid_Off_Count) as Total_layoffs
+    FROM layoffs
+    WHERE Industry != "Unknown"
+    group by Industry
+    order by sum(Laid_Off_Count) DESC
     LIMIT 10
     ;
     """
@@ -52,14 +54,14 @@ def searchTop100ChineseCompanies():
     return result
 
 
-def searchCountriesByNumberOfTop100Companies():
+def query_search_location():
     # get all the data from database
     sql = """
-    SELECT Country, Count(*)
-    FROM Fortune
-    WHERE Rank <= 100
-    GROUP BY Country
-    ORDER BY Count(*) DESC;
+    SELECT Location, sum(Laid_Off_Count) as Total_layoffs
+    FROM layoffs
+    group by Location
+    order by sum(Laid_Off_Count) DESC
+    LIMIT 10
     ;
     """
 
@@ -73,12 +75,15 @@ def searchCountriesByNumberOfTop100Companies():
     return result
 
 
-def searchCountriesRankedByMarketValue():
+def query_search_IPO():
     # get all the data from database
     sql = """
-    SELECT Country, MAX(MarketValue) as MaxMarketValue
-    FROM Fortune
-    GROUP BY Country
+    SELECT Company, Location, Industry, Laid_Off_Count
+    FROM(
+    SELECT Company, Location, Industry, Laid_Off_Count, rank() over(partition by Industry order by Laid_Off_Count desc) as rnks
+    FROM layoffs
+    WHERE Stage = "IPO") a1
+    WHERE rnks = 1 or rnks = 2 or rnks = 3
     ;
     """
 

@@ -1,5 +1,7 @@
 import sqlite3
 import csv
+import pandas as pd
+
 
 
 def init_db():
@@ -51,6 +53,26 @@ def init_db():
 
     # Committing the changes
     connection.commit()
+
+    # get all the data from database
+    sql = """
+    SELECT Company, Location, Industry, Laid_Off_Count
+    FROM(
+    SELECT Company, Location, Industry, Laid_Off_Count, rank() over(partition by Industry order by Laid_Off_Count desc) as rnks
+    FROM layoffs
+    WHERE Stage = "IPO") a1
+    WHERE rnks = 1 or rnks = 2 or rnks = 3
+    ;
+    """
+
+    # executing the SQL query
+    cursor.execute(sql)
+
+    # storing the data in a variable using fetchall() method
+    alldata = cursor.fetchall()  # a list of tuples
+    df = pd.DataFrame(alldata)
+    print(df)
+
 
     # closing the database connection
     connection.close()
