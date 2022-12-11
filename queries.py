@@ -101,7 +101,7 @@ def query_search_country(country):
     sql = """
     SELECT Company, Location, Industry, Laid_Off_Count, Date, Country, Percentage
     FROM layoffs
-    WHERE Country = '&country'
+    WHERE Country = :country
     order by Laid_Off_Count DESC
     LIMIT 10
     
@@ -109,7 +109,7 @@ def query_search_country(country):
     """
 
     # executing the SQL query
-    cursor.execute(sql)
+    cursor.execute(sql, {'country': country})
 
     # storing the data in a variable using fetchall() method
     alldata = cursor.fetchall()  # a list of tuples
