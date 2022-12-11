@@ -3,7 +3,7 @@ import pandas as pd
 import sqlite3
 
 # Connecting to the database
-connection = sqlite3.connect("layoffs.db")
+connection = sqlite3.connect("layoffs_data.db")
 
 # Creating a cursor object to execute
 # SQL queries on a database table
@@ -84,6 +84,49 @@ def query_search_IPO():
     FROM layoffs
     WHERE Stage = "IPO") a1
     WHERE rnks = 1 or rnks = 2 or rnks = 3
+    ;
+    """
+
+    # executing the SQL query
+    cursor.execute(sql)
+
+    # storing the data in a variable using fetchall() method
+    alldata = cursor.fetchall()  # a list of tuples
+    df = pd.DataFrame(alldata)
+    result = parse_to_json(df)
+    return result
+
+def query_search_country(country):
+    # get all the data from database
+    sql = """
+    SELECT Company, Location, Industry, Laid_Off_Count, Date, Country, Percentage
+    FROM layoffs
+    WHERE Country = :country
+    order by Laid_Off_Count DESC
+    LIMIT 10
+    
+    ;
+    """
+
+    # executing the SQL query
+    cursor.execute(sql, {'country': country})
+
+    # storing the data in a variable using fetchall() method
+    alldata = cursor.fetchall()  # a list of tuples
+    df = pd.DataFrame(alldata)
+    result = parse_to_json(df)
+    return result
+
+
+
+def query_search_portion():
+    # get all the data from database
+    sql = """
+    SELECT Company, Location, Industry, Laid_Off_Count, Date, Country, Percentage
+    FROM layoffs
+    order by Percentage DESC
+    LIMIT 10
+    
     ;
     """
 
