@@ -1,6 +1,7 @@
 # IDS706-Final-Project-Group18
 This is final project for ids 706, which builds web microservice that has an API with Swagger Documentation that performs a query using sqlite3 and returns the following information to the user.
-[dataset source](https://www.kaggle.com/datasets/theakhilb/layoffs-data-2022)
+
+Dataset can be download from here [dataset source](https://www.kaggle.com/datasets/theakhilb/layoffs-data-2022)
 
 ## our API with Swagger documentation
 ```
