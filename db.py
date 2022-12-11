@@ -4,25 +4,30 @@ import csv
 
 def init_db():
     # Connecting to the database
-    connection = sqlite3.connect("fortune.db")
+    connection = sqlite3.connect("layoffs_data.db")
 
     # Creating a cursor object to execute
     # SQL queries on a database table
     cursor = connection.cursor()
 
-    drop_table = """DROP TABLE IF EXISTS fortune"""
+    drop_table = """DROP TABLE IF EXISTS layoffs"""
     cursor.execute(drop_table)
 
     # Table Definition
-    create_table = """CREATE TABLE fortune(
+    create_table = """CREATE TABLE layoffs(
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Rank INTEGER NOT NULL,
-                    Name TEXT NOT NULL,
-                    Country TEXT NOT NULL,
-                    Sales TEXT NOT NULL,
-                    Profit TEXT NOT NULL,
-                    Assets TEXT NOT NULL,
-                    MarketValue TEXT NOT NULL);
+                    Company TEXT NOT NULL,
+                    Location TEXT,
+                    Industry TEXT,
+                    Laid_Off_Count INTEGER, 
+                    Date DATETIME,
+                    Source TEXT,
+                    Funds_Raised DECIMAL,
+                    Stage TEXT,
+                    Date_Added DATETIME,
+                    Country TEXT,
+                    Percentage DECIMAL,
+                    List_of_Employees_Laid_Off TEXT);
                     """
 
     # Creating the table into our
@@ -30,7 +35,7 @@ def init_db():
     cursor.execute(create_table)
 
     # Opening the fortune.csv file
-    file = open("fortune.csv", encoding="utf-8")
+    file = open("layoffs_data.csv", encoding="utf-8")
 
     # Reading the contents of the
     # person-records.csv file
@@ -38,7 +43,7 @@ def init_db():
 
     # SQL query to insert data into the
     # person table
-    insert_records = "INSERT INTO fortune (Rank, Name, Country, Sales, Profit, Assets, MarketValue) VALUES(?, ?, ?, ?, ?, ?, ?)"
+    insert_records = "INSERT INTO layoffs (Company,Location,Industry,Laid_Off_Count,Date,Source,Funds_Raised,Stage,Date_Added,Country,Percentage,List_of_Employees_Laid_Off) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
 
     # Importing the contents of the file
     # into our person table
@@ -49,3 +54,8 @@ def init_db():
 
     # closing the database connection
     connection.close()
+
+
+
+if __name__ == "__main__":
+    init_db()
