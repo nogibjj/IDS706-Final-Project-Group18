@@ -5,8 +5,11 @@ Dataset can be download from here [dataset source](https://www.kaggle.com/datase
 
 ## Team member
 Chen Bian
+
 Kaiyuan Li
+
 Zheng Zhang
+
 Jiankai Xu
 
 ## our API with Swagger documentation
