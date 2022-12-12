@@ -4,13 +4,10 @@ This is final project for ids 706, which builds web microservice that has an API
 Dataset can be download from here [dataset source](https://www.kaggle.com/datasets/theakhilb/layoffs-data-2022)
 
 ## Team member
-Chen Bian
-
-Kaiyuan Li
-
-Zheng Zhang
-
-Jiankai Xu
+Chen Bian<br>
+Kaiyuan Li<br>
+Zheng Zhang<br>
+Jiankai Xu<br>
 
 ## our API with Swagger documentation
 ```
