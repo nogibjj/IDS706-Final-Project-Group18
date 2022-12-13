@@ -33,7 +33,20 @@ python main.py
 
 In the new web page, add `/docs` to the url and take the advantage of the swagger.
 ![docs](/home/picture/docs.png)
+
 or 
+
 ```
-curl 
+curl -X 'GET' \
+  '[Your localhost or other IP address]/query/searchAll' \
+  -H 'accept: application/json'
 ```
+for example,
+```
+curl -X 'GET' \
+  'https://apple-pie-smile-probable-guacamole-w9g5r5vr9wjc5prp-8080.preview.app.github.dev/query/searchAll' \
+  -H 'accept: application/json'
+```
+
+
+
