@@ -21,3 +21,19 @@ GET /query/searchCountry?Country=xxx Search the top 10 companies with the most l
 GET /query/searchPortion Search the top 10 companies with the highest portion of layoffs
 ```
 
+## To start with make install
+```
+make install
+```
+
+## How to use the project
+```
+python main.py
+```
+
+In the new web page, add /docs to the url and take the advantage of the swagger.
+
+or 
+```
+curl 
+```
