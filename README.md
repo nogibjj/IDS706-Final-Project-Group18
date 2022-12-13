@@ -56,7 +56,9 @@ The response from 3rd GET method, which is use for querying the search of top 10
 which response body is in the form of json.
 
 
-<sytle>pre{
+<sytle>
+  pre{
   overflow-y: auto;
   max-height: 300px;
-}</style>
+}
+</style>
