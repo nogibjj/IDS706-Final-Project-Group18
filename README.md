@@ -31,8 +31,8 @@ make install
 python main.py
 ```
 
-In the new web page, add /docs to the url and take the advantage of the swagger.
-
+In the new web page, add `/docs` to the url and take the advantage of the swagger.
+![docs](/home/picture/docs.png)
 or 
 ```
 curl 
