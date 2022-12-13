@@ -4,7 +4,7 @@ Specifically, we find an layoff dataset from kaggle and want to get some informa
 
 Dataset can be download from here [dataset source](https://www.kaggle.com/datasets/theakhilb/layoffs-data-2022)
 
-## Team member
+## Team members
 - Chen Bian<br>
 - Kaiyuan Li<br>
 - Zheng Zhang<br>
@@ -13,7 +13,7 @@ Dataset can be download from here [dataset source](https://www.kaggle.com/datase
 ## Flow
 ![flow](/home/picture/flow.png)
 
-## our API with Swagger documentation
+## Our API with Swagger documentation
 ```
 GET / Initialize the database
 GET /query/searchAll Search all
