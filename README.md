@@ -51,7 +51,7 @@ curl -X 'GET' \
 
 The response from 3rd GET method, which is use for querying the search of top 10 location with most laid offs, should look like this:</br>
 <details> 
-<summary><font size="4" color="orange">Show Code</font></summary> 
+<summary><font size="4" color="orange">json response</font></summary> 
 <pre><code class="language-cpp">"[\n    {\n        \"0\": \"SF Bay Area\",\n        \"1\": 79840.0\n    },\n    {\n        \"0\": \"New York City\",\n        \"1\": 21986.0\n    },\n    {\n        \"0\": \"Bengaluru\",\n        \"1\": 17450.0\n    },\n    {\n        \"0\": \"Seattle\",\n        \"1\": 16051.0\n    },\n    {\n        \"0\": \"Boston\",\n        \"1\": 7311.0\n    },\n    {\n        \"0\": \"Sao Paulo\",\n        \"1\": 6637.0\n    },\n    {\n        \"0\": \"Los Angeles\",\n        \"1\": 5743.0\n    },\n    {\n        \"0\": \"Singapore\",\n        \"1\": 5663.0\n    },\n    {\n        \"0\": \"Mumbai\",\n        \"1\": 5525.0\n    },\n    {\n        \"0\": \"Gurugram\",\n        \"1\": 5351.0\n    }\n]"</code>
 </pre> </details>
 
