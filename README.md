@@ -42,7 +42,7 @@ curl -X 'GET' \
   -H 'accept: application/json'
 ```
 for the first GET method in Search. </br>
-for example,
+For example,
 ```
 curl -X 'GET' \
   'https://apple-pie-smile-probable-guacamole-w9g5r5vr9wjc5prp-8080.preview.app.github.dev/query/searchAll' \
