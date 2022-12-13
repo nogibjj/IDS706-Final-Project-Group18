@@ -10,6 +10,9 @@ Dataset can be download from here [dataset source](https://www.kaggle.com/datase
 - Zheng Zhang<br>
 - Jiankai Xu<br>
 
+## Flow
+![flow](/home/picture/flow.png)
+
 ## our API with Swagger documentation
 ```
 GET / Initialize the database
