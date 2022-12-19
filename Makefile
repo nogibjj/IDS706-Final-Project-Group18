@@ -14,4 +14,4 @@ deploy:
 	docker tag deploy-fastapi-final:latest 387493768903.dkr.ecr.us-east-1.amazonaws.com/deploy-fastapi-final:latest
 	docker push 387493768903.dkr.ecr.us-east-1.amazonaws.com/deploy-fastapi-final:latest
 
-all: install format lint deploy
+all: install format lint deploy 
