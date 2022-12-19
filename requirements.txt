@@ -8,4 +8,4 @@ click==8.1.2
 fastapi==0.75.1
 uvicorn==0.17.6
 pandas
-awscli
+awscli==1.27.32
