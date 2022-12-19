@@ -126,7 +126,6 @@ def query_search_portion():
     FROM layoffs
     order by Percentage DESC
     LIMIT 10
-    
     ;
     """
 
